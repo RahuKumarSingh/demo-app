@@ -1,0 +1,70 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    /* text-align: center; */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+    
+} 
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    display: inline-block;
+    /* margin: 0 10px; */
+    margin-left: 80px;
+  }
+.ecomm{
+ 
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px dotted white;
+
+}
+
+
+.profile img{
+  margin-top: -15px;
+  margin-left: 70px;
+  float: left;
+  border: 2px solid red;
+  border-radius: 50% 50%;
+  width: 60px;
+  height: 60px;
+}
+  @media screen and (max-width: 600px) {
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      display: block;
+      margin: 10px 0;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        margin-left: 0; /* Remove the left margin for smaller screens */
+    }
+    
+
+    .profile img {
+         /* Center the image */
+         
+         display: inline-block;
+         margin: 0px 0px;
+         text-align: center;
+         align-items: center;
+         justify-content: center;
+       
+    }
+  footer{
+    position: inherit;
+    width: 100%;
+    height: auto;
+  }
+  }

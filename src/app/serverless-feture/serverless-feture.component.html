@@ -1,0 +1,901 @@
+<app-head></app-head>
+<app-navbar></app-navbar>
+
+<div>
+  <section class="body">
+    <div class="container">
+      <div class="card mt-5 border-top1" style="width: 100%">
+        <img
+          src="../assets/image/serverless lembda.jpg"
+          class="card-img-top"
+          alt="..."
+          height="600px"
+        />
+        <div class="card-body">
+          <h5 class="card-title title">
+            SERVERLESS FUTURE: CREATEING YOUR FIRST AWS LAMBDA FUNCTION
+          </h5>
+          <span class="icon">
+            <a href="https://www.facebook.com"
+              ><i class="bi bi-facebook" style="color: rgb(4, 4, 172)"></i
+            ></a>
+            <a href="http://www.twitter.com"><i class="bi bi-twitter"></i></a>
+            <a href="http://www.google.com"
+              ><i class="bi bi-google" style="color: rgb(172, 4, 29)"></i
+            ></a>
+            <a href="http://www.linkedin.com"
+              ><i
+                class="bi bi-linkedin"
+                style="color: rgba(10, 10, 129, 0.559)"
+              ></i
+            ></a>
+            <a href="http://www.instragram.com"
+              ><i class="bi bi-instagram" style="color: brown"></i
+            ></a>
+            <a href="https://mail.google.com/mail"
+              ><i
+                class="bi bi-envelope-check-fill"
+                style="color: rgb(148, 144, 144)"
+              ></i
+            ></a>
+          </span>
+          <!-- add calender and logo and authar name  -->
+          <p class="card-text">
+            Howdy techies! I'm RahulKumar Singh with the DevOps team at Ecomm
+            India Cloud IT which helps companies with
+            <a
+              routerLink="/welcome"
+              style="color: orangered; text-decoration: underline"
+              >cloud transformation</a
+            >
+            and DevOps processes on top of cloud Platforms like AWS. Part of
+            what I do everyday is help organizations drastically increase their
+            pace of innovation by removing bottlenecks with DevOps pipelines
+            that increase their performance efficiency and reduce cost.
+          </p>
+          <p class="card-text">
+            I have been working on few exciting projects in the recent months
+            involving Rest API's and Serverless architecture. I thought I would
+            share with you some of the serverless tools and techniques that i
+            have learnt which might help you with your future projects.
+          </p>
+          <p class="card-text">
+            So, in this article I will be showing you how to create a serverless
+            function and a rest api to trigger this serverless function. For
+            this I will be using
+            <a
+              href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_eu-north-1_bf5a64531013fac5&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=U0nFN72ieR7v5-6rubtbDPzL4qd2ijoRZc6q2yVQrwE&code_challenge_method=SHA-256 "
+              style="color: orangered; text-decoration: underline"
+              >Amazon Web Services Lambda and API Gateway</a
+            >. I will be creating a basic Even Odd Function using python
+            environment, where the function will determine whether the user
+            input is even or odd. I am selecting a very basic function, so that
+            anybody can use this article to start learning Lambda function and
+            API gateway without needing too much coding experience. However, it
+            is recommended that the user should know basics of AWS. If you are
+            new to cloud computing and want to make a career in it, I recommend
+            you to visit
+            <a
+              href="https://www.ecomm.in/training/course/aws-solutions-architect/"
+              style="color: orangered; text-decoration: underline"
+              >AWS training
+            </a>
+            section on our website for more hands-on training on AWS.
+          </p>
+          <h3>So, what is serverless computing?</h3>
+          <br />
+          <p class="card-text">
+            About a decade ago or physical servers were still in demand, thanks
+            to cloud servers that is no longer the case, technically the
+            physical servers still do exist it's just that you don't need to
+            manage them as they are either automated or managed by a service
+            provider at a very low cost. And now serverless is abstracting cloud
+            servers.
+          </p>
+          <p class="card-text">
+            Serverless architecture is defined by stateless compute containers
+            and modeled for an event-driven solution. AWS Lambda is the perfect
+            example of serverless architecture and employs
+            <b>Functions as a service (FaaS)</b> model of cloud computing.
+            Platform as a Service (PaaS) architectures popularized by Salesforce
+            Heroku, AWS Elastic Beanstalk and Microsoft Azure simplify
+            applications deployment for developers.
+            <b
+              >And serverless architecture or Faas is the next step in that
+              direction.</b
+            >
+          </p>
+          <h3>Advantage of going serverless</h3>
+          <br />
+          <p class="card-text">
+            Main advantage is that you no longer need to keep a cloud server /
+            instance running all the time. The serverless compute capacity
+            appears when you need it, then disappears when you're done with it
+            just like a function and all your business logic can now live within
+            these functions.
+          </p>
+          <h3>So, what can you do with Lambda Functions?</h3>
+          <br />
+          <p class="card-text">
+            You can do a simple echo function, to a fully operational automated
+            chatbot for your website, possibilities are endless.
+          </p>
+          <p class="card-text">
+            Before we get our hands dirty here are few things that you require
+            to create your first lambda function:
+          </p>
+          <p class="card-text">
+            1. First, you'll need an AWS account. If you don't have one yet,
+            start by opening a free AWS account
+            <a
+              href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all"
+              style="color: orangered; text-decoration: underline"
+              >here</a
+            >. AWS has a free tier that's more than enough for what you will
+            need for this tutorial.
+          </p>
+          <p class="card-text">
+            2. Basic understanding of programming environment, AWS Lambda
+            currently supports code written in js (JavaScript), Python, Java
+            (Java 8 compatible), and C# (.NET Core). Your code can include
+            existing libraries, even native ones. Please read AWS documentation
+            on using Node.js, Python, Java, and C#.
+          </p>
+          <p class="card-text">
+            Once you are done with setting up your AWS Account we can move on to
+            creating our even odd function in python 2.7 environment using AWS
+            Lambda and API gateway.
+          </p>
+          <h3>Getting Started</h3>
+          <br />
+          <p class="card-text">
+            Right, now that we have the basic things in order, we can dig in! To
+            get started, login to your
+            <a
+              href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_eu-north-1_efddb9311bc0ed09&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=zuc2VqnIR8FIv7uD7kGGIf35Pz88qVNemUPf-xd9-7c&code_challenge_method=SHA-256"
+              style="color: orangered; text-decoration: underline"
+              >AWS Management console</a
+            >
+            , once done you should see a screen like below:
+          </p>
+
+          <img
+            src="../assets/image/console-login.jpeg"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Make a note of the region you are working in, as all your resources
+            will be created in this region. I'm using "US-East-2" region that is
+            "singapore".
+            <a
+              href="https://docs.aws.amazon.com/general/latest/gr/rande.html"
+              style="color: orangered; text-decoration: underline"
+              >Click here or more information on regions and availability
+              zones.</a
+            >
+          </p>
+          <h3>AWS Lambda Function</h3>
+          <br />
+          <p class="card-text">
+            To start with the coding click on the Lambda link present under
+            Compute section or just write in the text bar provided below AWS
+            Services title. For this post, I am creating a function which will
+            check whether the given number is even or odd.
+          </p>
+          <p class="card-text">
+            You should see below page if you have never used AWS Lambda before,
+            from here you can quickly access documentation related to Lambda,
+            find out its cost or could learn new features. Take your time to go
+            through these details before proceeding to create a function.
+          </p>
+          <br />
+          <img
+            src="../assets/image/aws-lambda.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br />
+          <br />
+          <h3>Blueprint</h3>
+          <br />
+          <p class="card-text">
+            Once you are ready click on the create a function on the top right
+            corner of this page.
+          </p>
+
+          <img
+            src="../assets/image/blueprint.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <p class="card-text">
+            You can see some sample blueprints on this screen to start off with
+            or can start from scratch, for this blog I will start from scratch.
+          </p>
+          <p class="card-text">
+            After you click author from scratch you should get below screen.
+          </p>
+
+          <h3>Triggers</h3>
+          <br />
+          <img
+            src="../assets/image/triggers.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Here you can configure the triggers which will call this Lambda
+            function and give you the result depending on the code, you can
+            choose from a few options. I will be using API Gateway as the
+            trigger method, this way we can test the Lambda function from our
+            browser. So, update the values as shown below. Please note for
+            simplicity reasons I am keeping the security open, it is recommended
+            that you use either AWS IAM or Access ID & Code for securing your
+            API from other users. That is advanced method and we shall cover
+            that later. Once you are done with making changes to your screen
+            click next.
+          </p>
+          <img
+            src="../assets/image/add-triggers.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br />
+          <h3>Configure Function</h3>
+          <p class="card-text">
+            After this click nezt, you should get below screen.
+          </p>
+          <img
+            src="../assets/image/config-function.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br /><br />
+          <p class="card-text">
+            Change the runtime environment from Node.js 6.10 to Python 2.7 as I
+            am providing the code in python language. Make sure you give an
+            appropriate Name to the function and an optional description. I have
+            updated the Name and Description of the function to indicate its
+            purpose.
+          </p>
+          <img
+            src="../assets/image/change-env.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Once you are done, scroll down to start with your code.
+          </p>
+          <h3>Code</h3>
+          <br />
+          <img
+            src="../assets/image/code-lambda.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br />
+          <img
+            src="../assets/image/code-lambda1.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <h3>Handler & Permissions</h3>
+          <br />
+          <p class="card-text">
+            Once you are done writing the code make sure you set the handler
+            name with function.lambda_handler where function is the name of your
+            function, for me its evenodd hence my handler is
+            evenodd.lambda_handler. Next step is to create a role to allow this
+            lambda to execute the function, select an appropriate name for the
+            role and attach policy template by typing lambda inside the dropdown
+            box indicated by the arrow, you should select "Basic Edge Lambda
+            Permissions"
+          </p>
+          <img
+            src="../assets/image/handler.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Scroll down and click on advanced setting and edit the time out from
+            3 seconds to 30seconds.
+          </p>
+
+          <img
+            src="../assets/image/advance-option.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Leave all other things to defaults. after that click, next and you
+            should see below screen:
+          </p>
+
+          <img
+            src="../assets/image/api-gateway.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">Finally click on the create function button.</p>
+
+          <h3>Testing</h3>
+          <br />
+          <p class="card-text">
+            Next step is to click on test button, edit the test document as show
+            below:
+          </p>
+          <img
+            src="../assets/image/test-image.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            And click the save and test. you should see a window similer to
+            below window:
+          </p>
+          <img
+            src="../assets/image/save-test.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            If you get execution result as succeeded then that means our
+            function is working as expected.
+          </p>
+          <br />
+          <p class="card-text">
+            We have tested the function from within the lambda function for
+            complete functionality we have a trigger to invoke this lambda
+            function from outside of the AWS. But first we need to update a few
+            things in our API gateway.
+          </p>
+
+          <h3>API Gateway</h3>
+          <br />
+          <p class="card-text">
+            Click on API Gateway it is in the Application Services section, or
+            you can write API Gateway in the text bar at the top. Once you open
+            API Gateway you should get below screen:
+          </p>
+          <img
+            src="../assets/image/api-gateway1.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            You can see that the lambda function has already created an API for
+            us as we defined it in the trigger section declaration of lambda
+            function. So, click on this API to get started.
+          </p>
+          <h3>Create Methods</h3>
+          <p class="card-text">
+            Click on the resorces (/evenodd) to see the below screen
+          </p>
+          <img
+            src="../assets/image/amazone-api.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            By default, when you create a trigger of API Gateway from Lambda
+            function it creates the any method for its execution. However, I am
+            going to create a new method to use this API gateway. First, I will
+            create a Get method and later I will create a POST method. To start
+            this process, click on the action button at the top and select
+            create method.
+          </p>
+          <img
+            src="../assets/image/create-method.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <h3>GET Method</h3>
+          <br />
+          <p class="card-text">Select a GET Method from the dropdown list.</p>
+          <img
+            src="../assets/image/get-method.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            In here use the integration type as Lambda function and then select
+            the Lambda region that you have used to create your lambda in, for
+            me it was ap-southeast-1 (singapore) so my settings are like:
+          </p>
+          <img
+            src="../assets/image/get.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Once you are done with updating the details, click next and you'd
+            get a pop up like below.
+          </p>
+          <img
+            src="../assets/image/popup.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Cliok ok on this message to get a screen like below.
+          </p>
+          <img
+            src="../assets/image/get2.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <h3>integration Request</h3>
+          <p>You should get a screen like:</p>
+          <img
+            src="../assets/image/integrate1.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <img
+            src="../assets/image/integrate2.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Now click on the arrow next to "Body Mapping Template"
+          </p>
+          <br />
+          <h3>Body Mapping Template</h3>
+          <img
+            src="../assets/image/body-mapping.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            By default, there are no templates defined, so select second option
+            on "Request Body Passthrough" that is when there are no templates
+            defined (Recommended) option and click on add mapping templates
+          </p>
+          <p class="card-text">You should get a box like below:</p>
+          <img
+            src="../assets/image/img.png"
+            class="card-img-top"
+            alt="..."
+            height="200px"
+          />
+          <br /><br />
+          <p class="card-text">
+            By default, the content-type suggested is application/json but it is
+            greyed out so you will need to type it in that box and click on the
+            tick next to it. Once done write in the template section as shown in
+            the below snapshot, and click save. Template field contains:
+          </p>
+          <img
+            src="../assets/image/img1.png"
+            class="card-img-top"
+            alt="..."
+            height="800px"
+          />
+          <br /><br />
+          <h3>Deployment</h3>
+          <br />
+          <p class="card-text">
+            Once done click on the action at the top and select derploy API to
+            get below screen:
+          </p>
+          <img
+            src="../assets/image/img3.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <p class="card-text">
+            You can select a new stage or select an existing stage to overwrite
+            it. I am overwriting the Prod stage, once done click deploy.
+          </p>
+          <p class="card-text">
+            Once you click deploy you should be redirected to the stages click
+            on the stage to expand it:
+          </p>
+          <img
+            src="../assets/image/img2.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Select the method that was created (Get), copy invoke the url path
+            and add"?Number=20" to it and past it in a new browser window.
+          </p>
+          <img
+            src="../assets/image/img4.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text text2">
+            <a
+              href="https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=20"
+              >https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=20</a
+            >
+          </p>
+          <p class="card-text">
+            *** replace above link with your link and use this endpoint. ***
+          </p>
+          <img
+            src="../assets/image/img5.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Similarly, you can change the value of the number in the above link
+            and you can check any number.
+          </p>
+          <p class="card-text text2">
+            <a
+              href="https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=11"
+              >https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=11</a
+            >
+          </p>
+          <p class="card-text">
+            *** replace above link with your link and use this endpoint. ***
+          </p>
+          <img
+            src="../assets/image/img6.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            This way we know that our function can be called using the Get
+            Methods.
+          </p>
+          <h2>POST Method</h2>
+          <p class="card-text">
+            We can also use the POST method to invoke our function. To create
+            the post method go back to API Gateway Console. Select the API,
+            click on resources and expand the methods. Once you do that you
+            should get below window:
+          </p>
+          <img
+            src="../assets/image/img7.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <p card-text>
+            Click on Actions button and select create method and select POST
+            method from the dropdown list. And update the details like we did
+            for the Get method. Once done hit save and you will get a pop like
+            below.
+          </p>
+          <img
+            src="../assets/image/img8.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+
+          <p class="card-text">Click ok on this pop up message.</p>
+          <img
+            src="../assets/image/img9.png"
+            class="card-img-top"
+            alt="..."
+            height="200px"
+          />
+          <br /><br />
+          <h3>Intregration Request</h3>
+          <br />
+          <p class="card-text">
+            Once you click ok you should get a screen below:
+          </p>
+          <img
+            src="../assets/image/img10.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <p class="card-text">
+            We will repeting steps that we did in the get method.
+          </p>
+          <img
+            src="../assets/image/img11.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <h3>Body Mapping Templates</h3>
+          <br />
+          <p class="card-text">
+            Now click on the Integration Request link that you see. Scroll down
+            after you have clicked till you find Body mapping templates.
+          </p>
+          <img
+            src="../assets/image/img12.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            By default, the content-type suggested is application/json but it is
+            greyed out so you will need to type it in that box and click on the
+            tick next to it. Once done write in the template section as shown in
+            the below snapshot, and click save.Template field contains:
+            {{ number }}
+          </p>
+
+          <img
+            src="../assets/image/img13.png"
+            class="card-img-top"
+            alt="..."
+            height="600px"
+          />
+          <br /><br />
+          <p class="card-text">Once done click save.</p>
+          <br />
+          <p class="card-text">
+            Click on "Method Execution" button tom go back to the POST Method
+            page.
+          </p>
+          <img
+            src="../assets/image/img14.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <h3>Integration Response</h3>
+          <br />
+          <p class="card-text">Now click "Integration Response" link</p>
+          <img
+            src="../assets/image/img15.png"
+            class="card-img-top"
+            alt="..."
+            height="400px"
+          />
+          <br /><br />
+          <p class="card-text">
+            You should see a screen like below, click on highlighted arrow.
+          </p>
+          <img
+            src="../assets/image/img16.png"
+            class="card-img-top"
+            alt="..."
+            height="200px"
+          />
+          <br /><br />
+          <p>
+            You should get a screen like below, click on the highlighted part.
+          </p>
+          <img
+            src="../assets/image/img17.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            And select "Convert to text (if needed)" from the dropdown listb and
+            hit save.
+          </p>
+          <img
+            src="../assets/image/img18.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Once done click on action button, click on Deploy API option.
+          </p>
+          <h3>Deployment</h3>
+          <br />
+          <p class="card-text">Select a new stage and deploy the API.</p>
+          <img
+            src="../assets/image/img19.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            You can notice the newly created stage in the stages options. Select
+            the newly created stage, select POST method and copy the invoke URL
+            as highlighted below.
+          </p>
+          <img
+            src="../assets/image/img20.png"
+            class="card-img-top"
+            alt="..."
+            height="250px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Copy the invoke URL that you see and you can use it directly to
+            invoke the Lambda function via this stage and method of the API. Now
+            open your browser paste invoke URL and add "?number=20" and press
+            enter. (Note you can change this number to any integer value.)
+          </p>
+          <p class="card-text text2">
+            <a
+              href="https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=20"
+              >https://n79ttbsgyf.execute-api.us-east-2.amazonaws.com/prod/evenodd?number=20</a
+            >
+          </p>
+          <p class="card-text">
+            *** replace above link with your link and use this endpoint. ***
+          </p>
+          <img
+            src="../assets/image/img21.png"
+            class="card-img-top"
+            alt="..."
+            height="250px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Congratulations - you have just set up and deployed your own Lambda
+            function & API Gateway!
+          </p>
+          <h3>Deleting Resorces</h3>
+          <br />
+          <p class="card-text">
+            To Delete this resorces, follow below screenshot:
+          </p>
+          <br />
+          <h3>API Gateway</h3>
+          <p class="card-text">
+            To delete the API, go back to the API Gateway page and select the
+            API Gateway, then click on the actions button and select "Delete
+            API" option.
+          </p>
+          <img
+            src="../assets/image/img22.png"
+            class="card-img-top"
+            alt="..."
+            height="500px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Once you click on the Delete API you will get below pop up type the
+            name of the API in the text box and then click delete API, make sure
+            you type correct name otherwise you may delete any other resources.
+          </p>
+          <img
+            src="../assets/image/img23.png"
+            class="card-img-top"
+            alt="..."
+            height="200px"
+          />
+          <br /><br />
+          <h3>Lambda Function</h3>
+          <br />
+          <p class="card-text">
+            Similarly, to delete the Lambda function, go to Lambda console, and
+            select the function to delete it.
+          </p>
+          <p class="card-text">
+            Click the delete button at the top, below pop up will follow:
+          </p>
+          <img
+            src="../assets/image/img24.png"
+            class="card-img-top"
+            alt="..."
+            height="300px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Confirm delete by clicking on delete, this way the function gets
+            deleted.
+          </p>
+          <img
+            src="../assets/image/img24 (2).png"
+            class="card-img-top"
+            alt="..."
+            height="200px"
+          />
+          <br /><br />
+          <p class="card-text">
+            Congratulations you have successfully completed this simple AWS
+            Lambda Function.
+          </p>
+          <p class="card-text">
+            If you have any questions related to this post or face any problems,
+            then do comment and I will try to resolve them as quickly as
+            possible.
+          </p>
+          <p class="card-text">Thanks for reading!.</p>
+          <span class="icon">
+            <a href="https://www.facebook.com"
+              ><i class="bi bi-facebook" style="color: rgb(4, 4, 172)"></i
+            ></a>
+            <a href="http://www.twitter.com"><i class="bi bi-twitter"></i></a>
+            <a href="http://www.google.com"
+              ><i class="bi bi-google" style="color: rgb(172, 4, 29)"></i
+            ></a>
+            <a href="http://www.linkedin.com"
+              ><i
+                class="bi bi-linkedin"
+                style="color: rgba(10, 10, 129, 0.559)"
+              ></i
+            ></a>
+            <a href="http://www.instragram.com"
+              ><i class="bi bi-instagram" style="color: brown"></i
+            ></a>
+            <a href="https://mail.google.com/mail"
+              ><i
+                class="bi bi-envelope-check-fill"
+                style="color: rgb(148, 144, 144)"
+              ></i
+            ></a>
+          </span>
+        </div>
+        <div class="nextButton">
+        <div class="btn btn-success" style="width: fit-content; float:left;">
+          <a routerLink="/available" class="card-link"
+            >>>Design The High Availability Infrastructure>></a
+          >
+        </div>
+
+        <div class="btn btn-success" style="width: fit-content;">
+          <a routerLink="/marketplace" class="card-link"
+            >>>E-COMMERCE-MARKETPLACE: Setup Your Site>></a
+          >
+        </div>
+
+      </div>
+
+      </div>
+
+      <!-- third card end -->
+    </div>
+  </section>
+  <app-footer></app-footer>
+</div>

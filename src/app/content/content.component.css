@@ -1,0 +1,156 @@
+
+
+.container{
+    display: flex;
+    padding-bottom: 50px;
+}
+.body{
+    background-color: rgb(246, 242, 242);
+    width: auto;
+    height:100%;
+    
+   
+}
+.title{
+    font-size: 20px;
+   color: orangered;
+    line-height: 1.5;
+}
+.btn{
+  margin-left: 15px;
+ margin-bottom: 30px; 
+width: 180px;
+text-align: center;
+align-items: center;
+justify-content: center;
+
+    
+    
+    /* background-color: orangered; */
+}
+.btn a{
+    
+    
+    text-decoration: none;
+    color: white;
+    
+}
+/* .card1{
+    margin-left: 88px;
+} */
+.card2{
+    margin-left: 40px;
+}
+.card3{
+    margin-left: 40px;
+}
+
+/* .sidebar1{
+    
+    float: right;
+    width:36%;
+    height: 100%;
+    background-color: rgb(246, 242, 242);
+    margin: 0px;
+    padding-left: 0px;
+
+  } */
+
+  .border-top1{
+    border-top: 3px solid rgb(255, 111, 0);
+  }
+@media only screen and (max-width: 600px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding-bottom: 50px;
+    
+      justify-content: center;
+    }
+    .btn{
+    
+        margin-left: 5px;
+        margin-bottom: 30px;
+        width: 180px;
+       
+       
+  }
+  .card{
+   
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    
+  }
+ 
+  .card2{
+    width: 100%;
+    margin: auto;
+    padding: auto;
+  }
+  .card3{
+    margin-top: -400px;
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+  }
+  .search{
+    padding-top: 0px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+@media screen and (min-device-width: 600px) and (max-device-width: 900px) { 
+  .container {
+    display: flex;
+    flex-direction: column;
+   
+    width: auto;
+    height: auto;
+    /* margin: 15px; */
+    padding-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn{
+  
+      margin-left: 5px;
+      margin-bottom: 30px;
+      width: 180px;
+     
+     
+}
+
+.card{
+ 
+  margin: auto;
+  padding: auto;
+  width: 100%;
+  
+}
+
+.card2{
+  width: 100%;
+  margin: auto;
+  padding: auto;
+}
+.card3{
+  margin-top: -400px;
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+}
+.search{
+  padding-top: 0px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+}

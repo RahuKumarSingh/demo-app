@@ -1,0 +1,108 @@
+
+
+
+.container{
+    display: flex;
+    padding-bottom: 50px;
+}
+.body{
+    background-color:rgb(218, 218, 218);
+    width: auto;
+    height:100%;
+    
+   
+}
+.title{
+    font-size: 30px;
+   color: rgb(181, 56, 10);
+    line-height: 1.5;
+}
+.btn{
+  margin-left: 15px;
+ margin-bottom: 30px; 
+width: 180px;
+text-align: center;
+align-items: center;
+justify-content: center;
+
+    
+    
+    /* background-color: orangered; */
+}
+.btn a{
+    
+    
+    text-decoration: none;
+    color: white;
+    
+}
+/* .card1{
+    margin-left: 88px;
+} */
+.card2{
+    margin-left: 40px;
+}
+.card3{
+    margin-left: 40px;
+}
+
+/* .sidebar1{
+    
+    float: right;
+    width:36%;
+    height: 100%;
+    background-color: rgb(246, 242, 242);
+    margin: 0px;
+    padding-left: 0px;
+
+  } */
+
+  .border-top1{
+    border-top: 4px solid rgb(255, 111, 0);
+  }
+  .icon a{
+    text-decoration: none;
+    font-size: 30px;
+    padding-right: 15px;
+   
+    
+  }
+  
+  .aws-documentation{
+   color: coral; border-bottom: 2px solid coral; text-decoration: none;cursor: pointer;
+  }
+
+  .aws-documentation:hover{
+    color: green;
+    border-bottom: 2px solid green;
+  }
+  p{
+    line-height: 1.5; font-size: 18px; text-align: justify;
+  }
+
+  @media only screen and (max-width: 600px) {
+  
+    .btn {
+        width: fit-content;
+    }
+    .card-link{
+        font-size: 12px;
+    }
+    
+  
+  }
+
+  .text2{
+     background-color: rgb(212, 206, 206);
+     margin-left: auto; 
+     padding-left: 20px;
+     padding-top: 20px;width: 100%;
+     padding-bottom: 20px;
+     padding-right: auto;
+     
+    
+  }
+  .text2 a {
+    color: brown;
+    cursor: pointer;
+  }
